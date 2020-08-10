@@ -15,13 +15,14 @@ const {
 } = require("./utils/users");
 const StatsD = require('hot-shots');
 const dogstatsd = new StatsD();
+const tracer = require('dd-trace').init();
 
 // Increment a counter.
 dogstatsd.increment('page.views')
 
-// tracer.init({
-//   analytics: true
-// })
+tracer.init({
+  analytics: true
+})
 
 const app = express();
 // Adding for socket.io to work with express, So we can pass in new server to socketio
