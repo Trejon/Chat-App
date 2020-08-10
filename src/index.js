@@ -13,6 +13,11 @@ const {
   getUser,
   getUsersInRoom,
 } = require("./utils/users");
+const StatsD = require('hot-shots');
+const dogstatsd = new StatsD();
+
+// Increment a counter.
+dogstatsd.increment('page.views')
 
 const app = express();
 // Adding for socket.io to work with express, So we can pass in new server to socketio
