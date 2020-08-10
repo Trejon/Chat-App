@@ -19,6 +19,10 @@ const dogstatsd = new StatsD();
 // Increment a counter.
 dogstatsd.increment('page.views')
 
+tracer.init({
+  analytics: true
+})
+
 const app = express();
 // Adding for socket.io to work with express, So we can pass in new server to socketio
 const server = http.createServer(app);
