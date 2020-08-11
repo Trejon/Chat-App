@@ -17,7 +17,6 @@ const StatsD = require('hot-shots');
 const dogstatsd = new StatsD();
 const tracer = require('dd-trace').init();
 
-// Increment a counter.
 dogstatsd.increment('page.views')
 
 tracer.init({
